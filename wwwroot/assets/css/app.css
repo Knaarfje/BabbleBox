@@ -466,7 +466,7 @@ h1.type, h2.type, h3.type, h4.type, h5.type, h6.type, .h1.type, .h2.type, .h3.ty
     right: 50px;
     bottom: 40px;
     color: #888;
-    font-size: 30px;
+    font-size: 40px;
     letter-spacing: 0.15em; }
 
 #test {
@@ -491,7 +491,7 @@ video {
 
 h2 {
   text-align: center;
-  margin-top: 150px;
+  margin-top: 120px;
   font-size: 5.3125em;
   position: relative;
   z-index: 5; }
@@ -656,13 +656,14 @@ form {
   z-index: 500;
   transition: .2s ease-in-out; }
   .keyboard-true form {
-    margin-top: -400px; }
+    margin-top: -300px; }
   form .intro {
     max-width: 1200px;
     text-align: center;
     margin-left: auto;
     margin-right: auto;
-    font-size: 30px; }
+    font-size: 30px;
+    margin-top: -20px; }
 
 .count-down {
   transition: all .4s ease-in-out;
@@ -1112,7 +1113,7 @@ textarea.form-control {
   z-index: 500;
   width: 660px;
   position: relative;
-  margin-top: 120px; }
+  margin-top: 110px; }
   .idea-panel textarea {
     resize: none; }
   .idea-panel .bulb-left {

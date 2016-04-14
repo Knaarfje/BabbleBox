@@ -15,7 +15,7 @@
         right: 50px;
         bottom: 40px;
         color: #888;
-        font-size: 30px;
+        font-size: 40px;
         letter-spacing: 0.15em;
     }
 }
@@ -43,7 +43,7 @@ video {
 
 h2 {
     text-align: center;
-    margin-top: 150px;
+    margin-top: 120px;
     font-size: em(85px);
     position: relative;
     z-index: 5;
@@ -227,7 +227,7 @@ form {
     transition: .2s ease-in-out;
     
     .keyboard-true & {
-        margin-top: -400px;
+        margin-top: -300px;
     }
     
     .intro {
@@ -236,6 +236,7 @@ form {
         margin-left: auto;
         margin-right: auto;
         font-size: 30px;
+        margin-top: -20px;
     }
 }
 
