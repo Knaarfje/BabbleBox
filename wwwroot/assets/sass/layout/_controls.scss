@@ -1,3 +1,5 @@
+$nudge-keyboard: -400px;
+
 .controls {
     background: url(/assets/img/ice-footer.png);
     background-size: 100% auto;
@@ -131,95 +133,103 @@ h2 {
     }
 }
 
-    .state-1 {
-        .video-time,
-        .record-btn {
-            opacity: 1;
-            transition: all .4s ease-in-out;
+.state-0 {
+    &.keyboard-true {
+        .btn.btn-primary.record-btn {
+            transform: translateX(-50%) translateY(#{$nudge-keyboard});
         }
-        
-        &.show-count {
-            .video-time,
-            .record-btn.fab-md {
-                opacity: 0;
-            }
-        }
-        
-        &.hide-count {
-            .record-btn.fab-md {
-                .inner {
-                    animation: tick 2s infinite ease-in-out;
-                }
-            }
-        }
-        
     }
-    
-    .state-2 {
-        .btn.btn-blue.fab-md,
-        .btn.record-btn.fab-md {
-            transform: scale(0.66);
-            transform-origin: center bottom;
-            position: absolute; 
-            bottom: 40px;
-            right: 0;
-        }
-        
-        .btn.record-btn.fab-md {
-            right: auto;
-            left: 0;
-        }
-        
-        .btn-play {
-            margin-left: 10px;
-        }
-        .btn-pause {
-            height: 130px;
-        }
-        
-        .btn.btn-success {
-            bottom: 40px;
-            left: 50%;
-            position: absolute;
-            transform: translateX(-50%);  
-            
-            img {
-                width: 160px;
-            }
-           
-        }
-        
-    }
-    
-    .state-3,
-    .state-4 {
-        .btn.btn-fab.btn-success {
-            position: absolute;
-            top: 50%;
-            bottom: auto;
-            left: 50%;
-            transform: translate(-50%, -50%) scale(1.8);
-            z-index: 500;
-            
-            .fa {
-                position: absolute;
-                top: 27%;
-                left: 27%;
-                font-size: 120px;
-                color: #00363B;
-            }
-            
-            img {
-                width: 140px;
-            }
-        } 
-        
-        .btn.btn-fab.btn-primary.record-btn {
-            left: 0;
-            transform: scale(0.66) translateX(0);
-        }
+}
 
+.state-1 {
+    .video-time,
+    .record-btn {
+        opacity: 1;
+        transition: all .4s ease-in-out;
     }
+    
+    &.show-count {
+        .video-time,
+        .record-btn.fab-md {
+            opacity: 0;
+        }
+    }
+    
+    &.hide-count {
+        .record-btn.fab-md {
+            .inner {
+                animation: tick 2s infinite ease-in-out;
+            }
+        }
+    }
+    
+}
+    
+.state-2 {
+    .btn.btn-blue.fab-md,
+    .btn.record-btn.fab-md {
+        transform: scale(0.66);
+        transform-origin: center bottom;
+        position: absolute; 
+        bottom: 40px;
+        right: 0;
+    }
+    
+    .btn.record-btn.fab-md {
+        right: auto;
+        left: 0;
+    }
+    
+    .btn-play {
+        margin-left: 10px;
+    }
+    .btn-pause {
+        height: 130px;
+    }
+    
+    .btn.btn-success {
+        bottom: 40px;
+        left: 50%;
+        position: absolute;
+        transform: translateX(-50%);  
+        
+        img {
+            width: 160px;
+        }
+        
+    }
+    
+}
+    
+.state-3,
+.state-4 {
+    .btn.btn-fab.btn-success {
+        position: absolute;
+        top: 50%;
+        bottom: auto;
+        left: 50%;
+        transform: translate(-50%, -50%) scale(1.8);
+        z-index: 500;
+        
+        .fa {
+            position: absolute;
+            top: 27%;
+            left: 27%;
+            font-size: 120px;
+            color: #00363B;
+        }
+        
+        img {
+            width: 140px;
+        }
+    } 
+    
+    .btn.btn-fab.btn-primary.record-btn {
+        left: 0;
+        transform: scale(0.66) translateX(0);
+    }
+
+}
 
 form {
     @include abs;
@@ -227,7 +237,7 @@ form {
     transition: .2s ease-in-out;
     
     .keyboard-true & {
-        margin-top: -200px;
+        margin-top: $nudge-keyboard;
     }
     
     .intro {

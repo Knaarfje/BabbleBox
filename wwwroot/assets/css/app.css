@@ -579,6 +579,10 @@ h2 {
   97% {
     opacity: .8; } }
 
+.state-0.keyboard-true .btn.btn-primary.record-btn {
+  -webkit-transform: translateX(-50%) translateY(-400px);
+          transform: translateX(-50%) translateY(-400px); }
+
 .state-1 .video-time,
 .state-1 .record-btn {
   opacity: 1;
@@ -656,7 +660,7 @@ form {
   z-index: 500;
   transition: .2s ease-in-out; }
   .keyboard-true form {
-    margin-top: -200px; }
+    margin-top: -400px; }
   form .intro {
     max-width: 1200px;
     text-align: center;
