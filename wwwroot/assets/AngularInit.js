@@ -167,10 +167,11 @@ app.controller("babbleBoxController", function($scope, $sce, UserMedia, $http, $
         }
     }
     
-        
-
-        
-    
+    v.addEventListener('ended', () =>{
+        $scope.playing = false;
+        $scope.$apply();
+        v.currentTime = 0;
+    },false);
 
     $scope.save = () => {
         $scope.state = BabbleBoxState.SAVING;
@@ -193,7 +194,7 @@ app.controller("babbleBoxController", function($scope, $sce, UserMedia, $http, $
                     email: null
                 };
                 
-                $timeout(function(){
+                $timeout(() => {
                     if ($scope.state = BabbleBoxState.SAVED) $scope.state = BabbleBoxState.READY;
                 },10000)
             });
