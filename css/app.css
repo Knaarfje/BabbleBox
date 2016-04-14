@@ -656,7 +656,7 @@ form {
   z-index: 500;
   transition: .2s ease-in-out; }
   .keyboard-true form {
-    margin-top: -300px; }
+    margin-top: -200px; }
   form .intro {
     max-width: 1200px;
     text-align: center;
@@ -1113,7 +1113,7 @@ textarea.form-control {
   z-index: 500;
   width: 660px;
   position: relative;
-  margin-top: 110px; }
+  margin-top: 140px; }
   .idea-panel textarea {
     resize: none; }
   .idea-panel .bulb-left {
