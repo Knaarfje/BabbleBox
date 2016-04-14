@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="author" content="Scott Gilbertson">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Babble box</title>
+    <script src="https://cdn.webrtc-experiment.com/RecordRTC.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>    
+    <script src="/assets/AngularInit.js"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+    <style>
+        body{
+            background: #000;
+        }
+        video{
+            position: absolute;
+            top: 0;
+            bottom:0;
+            left:0;
+            right:0;
+            width: 100%;
+            height:100%;
+            pointer-events: none;
+        }
+        
+        .modalbox{
+            text-align: center;
+        }
+        
+        .modalForm,.modalbox{
+            position: absolute;
+            left: 40%;
+            right: 40%;
+            top: 40%;
+            z-index: 9999;
+            padding: 20px;
+        }
+        .modalForm label{
+            color: #fff;
+        }
+        
+        .modalForm input{
+            background: rgba(255,255,255,0.25);
+            border: solid 1px #fff;
+            
+            color: #fff;
+        }
+        .controls{
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.75);            
+            z-index: 9999;
+            padding: 10px;
+        }
+        .blink_me {
+            animation: blinker 1s cubic-bezier(0.075, 0.82, 0.165, 1) infinite;
+        }
+
+        @@keyframes blinker {  
+            50% { opacity: 0.0; }
+        }
+    </style>
+</head>
+
+<body data-ng-app="babbleBoxApp" data-ng-controller="babbleBoxController" data-ng-init="init()">
+    @RenderBody()
+</body>
+
+</html>
