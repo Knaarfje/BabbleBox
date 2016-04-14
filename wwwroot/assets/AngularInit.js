@@ -50,7 +50,7 @@ app.controller("babbleBoxController", function($scope, $sce, UserMedia, $http, $
     // countdown interval props    
     $scope.countdownPromise;
     $scope.countdown;
-
+    
     // recording duration props
     $scope.durationPromise;
     $scope.recordingDuration = 0;
@@ -59,6 +59,10 @@ app.controller("babbleBoxController", function($scope, $sce, UserMedia, $http, $
         name: null,
         email: null
     }
+    
+    $scope.keyboardOpen = false;
+    $scope.focus = () => $scope.keyboardOpen = true;
+    $scope.blur = () => $scope.keyboardOpen = false;
 
     var hdConstraints = {
         audio: true,

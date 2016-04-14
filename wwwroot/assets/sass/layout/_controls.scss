@@ -224,6 +224,11 @@ h2 {
 form {
     @include abs;
     z-index: 500;
+    transition: .2s ease-in-out;
+    
+    .keyboard-true & {
+        margin-top: -400px;
+    }
     
     .intro {
         max-width: 1200px;

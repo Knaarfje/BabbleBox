@@ -653,7 +653,10 @@ form {
   right: 0;
   bottom: 0;
   left: 0;
-  z-index: 500; }
+  z-index: 500;
+  transition: .2s ease-in-out; }
+  .keyboard-true form {
+    margin-top: -400px; }
   form .intro {
     max-width: 1200px;
     text-align: center;

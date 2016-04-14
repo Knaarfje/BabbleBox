@@ -1,4 +1,4 @@
-<div class="state-{{state}}" ng-class="countdown == 0 ? 'hide-count' : 'show-count'">
+<div class="state-{{state}} keyboard-{{keyboardOpen}}" ng-class="countdown == 0 ? 'hide-count' : 'show-count'">
     <form name="myForm" data-ng-if="state == 0">
         <h2 class="has-back-title is-dark">
             <span class="back-title">Plaats een idee</span>
@@ -14,11 +14,11 @@
             <img src="/assets/img/bulb-right.png" class="bulb-right">
             
             <div class="label-group">
-                <input type="text" name="name" required class="form-control form-control-alt"" ng-model="user.name" autocomplete="off">
+                <input ng-focus="focus()" ng-blur="blur()"  type="text" name="name" required class="form-control form-control-alt"" ng-model="user.name" autocomplete="off">
                 <label for="name" class="form-label">Naam</label>
             </div>
             <div class="label-group">
-                <input type="email" name="email" required class="form-control form-control-alt"" ng-model="user.email" autocomplete="off">
+                <input ng-focus="focus()" ng-blur="blur()" type="email" name="email" required class="form-control form-control-alt"" ng-model="user.email" autocomplete="off">
                 <label for="email" class="form-label">E-mailadres</label>
             </div>
         </div>
