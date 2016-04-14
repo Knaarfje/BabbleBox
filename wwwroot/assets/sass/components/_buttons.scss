@@ -1,0 +1,183 @@
+﻿@import "../utils/utils";
+
+[ng-click], [data-ng-click] {
+    cursor: pointer;
+}
+
+.btn {
+    border: 0;
+    padding: 4.5px 12px;
+    display: inline-block;
+    letter-spacing: 1px;
+    font-family: "prohibition";
+    font-size: 22px;
+    text-align: center;
+    transition: all .15s ease-in-out;
+    vertical-align: middle;
+
+    .btn-vr {
+        transition: all .15s ease-in-out;
+    }
+
+    text-decoration:none;
+    position: relative;
+
+    &:focus, &:hover, &:active {
+        box-shadow: none;
+        outline: 0;
+    }
+} 
+
+.btn-wrapper {
+    margin: em(50px) 0;
+
+    &>.btn:first-child {
+        margin-right: 7px;
+    }
+
+    .btn {
+        margin-bottom: 7px;
+    }
+}
+
+.btn-bottom-space {
+    margin-bottom: 7px;
+}
+
+// Bootstrap btn-group styling
+.btn-group {
+    text-align: center;
+}
+
+.btn-group .btn+.btn, 
+.btn-group .btn+.btn-group, 
+.btn-group .btn-group+.btn, 
+.btn-group .btn-group+.btn-group {
+    margin-left: -2px!important;
+}
+
+.btn-primary {
+    @include btn($color-primary, white, 0px, 22px);
+}
+
+.btn-secondary {
+    @include btn($color-secondary-t1, white, 0px, 22px);
+}
+
+.btn-tertiary {
+    @include btn(white, #1E393E, 0px, 22px);
+}
+.btn-tertiary-light {
+    @include btn(white, $color-secondary-t1, 0px, 22px);
+}
+
+.btn-primary-outline {
+    @include btn($color-primary, white, 0, 22px, 'outline');
+}
+
+.btn-secondary-outline {
+    @include btn($color-secondary-t1, white, 0, 22px, 'outline');
+}
+
+.btn-tertiary-outline {
+    @include btn(#1E393E, white, 0, 22px, 'outline');
+
+
+}
+
+
+.btn-square {
+    width: 40px;
+    padding: 0;
+    line-height: 40px;
+    .fa { vertical-align: middle; }
+}
+
+.program-btn {
+    @include clearfix;
+    display: inline-block;
+    vertical-align: middle;
+    .btn {
+        float: left;
+        margin-right: -2px;
+    }
+}
+
+.btn+.btn,
+.btn+.btn-group,
+.btn-group+.btn{
+    margin-left: 5px;
+}
+
+
+
+*, *:before, *:after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+ 
+.btn-diamond {
+  margin: 100px auto;
+  width: 100px;
+  height: 100px;
+  padding: 40px 0;
+  line-height: 20px;
+  text-align: center;
+  display: block;
+  position: relative;
+  z-index: 10;
+  cursor: pointer;
+}
+
+.btn-diamond:before {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background: #ccc;
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.btn.btn-raised {
+    box-shadow: $shadow;
+
+    &:hover, &:focus, &:active {
+        box-shadow: $shadow-lg !important;
+    }
+}
+
+.btn-fab {
+    width: em(250px, 22px);
+    height: em(250px, 22px);
+    padding: 0;
+    border-radius: 50%!important;
+    position: relative;
+
+    .zza-icon {
+        position: absolute;
+        top: 50%; left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 2em;
+        transition: all .3s;
+    }
+
+    &:hover,&:active,&:focus {
+        transform: rotate(45deg);
+
+        .zza-icon {
+            transform: translate(-50%, -50%) rotate(-45deg);
+        }
+    }
+}
+
+.btn.btn-link {
+    background: none!important;
+    border: none!important;
+    padding-left: 0;
+    padding-right: 0;
+}

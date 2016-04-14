@@ -1,0 +1,149 @@
+﻿*, *:after, *:before {
+    box-sizing: border-box;
+}
+
+body,html{
+    -webkit-overflow-scrolling: touch;
+}
+
+body {
+    -webkit-font-smoothing: antialiased;
+    font-size: 16px;
+    font-family: $font-body;
+    letter-spacing: 1.5px;
+    overflow-x: hidden;
+}
+
+
+h1,h2,h3,h4,h5,h6,
+.h1,.h2,.h3,.h4,.h5,.h6{
+    font-family: $font-heading;
+    color: $color-secondary;
+    margin-top: .1em;
+}
+
+h1 {
+    letter-spacing: .2em;
+    font-size: em(65px);
+    margin-top: 0.5em; 
+}
+
+h2{
+    font-size: em(55px);
+    letter-spacing: .08em;
+    margin-bottom: 1em;
+}
+
+h3{
+    font-size: em(35px);
+    letter-spacing: .08em;
+    margin-bottom: 1em;
+}
+h4{
+    font-size: em(30px);
+    letter-spacing: .08em;
+    margin-bottom: 1em;
+}
+
+p{
+    font-size: em(20px);
+}
+
+.p-secundary{
+font-size: em(17px);
+}
+
+a{
+    color:$color-primary;
+    text-decoration:underline;
+    cursor:pointer;
+    transition: all .15s ease-in-out;
+
+    &:hover{
+        color: darken($color-primary, 25%);
+    }
+}
+
+.has-back-title{
+    position: relative;
+}
+.back-title{
+    letter-spacing: 0;
+    font-family: $font-written;
+    color: rgba($color-secondary-t1, .3);
+
+    .is-dark & {
+        color: rgba($color-secondary-t1, .5);
+    }
+
+    position: absolute;
+    top: -.5em;
+    z-index: 0;
+    font-size: 1.55em;
+    left: 0;
+    right: 0;
+
+    &+span{
+        position:relative;
+        z-index:1;
+
+        .is-dark & {
+            color: white;
+        }
+    }
+}
+
+%p {
+    font-size: em(17px);
+    font-family: $font-body;
+    color: rgba($gray-dark, .6);
+    letter-spacing: .15em;
+    line-height: 1.6;
+}
+
+p{
+    @extend %p;
+    margin-bottom: 1em;
+
+    &.intro{
+        font-size: em(20px);
+        color: $color-secondary;
+        margin-bottom: 1.5em;
+    }
+}
+
+.hide-hr {
+    height: 0;
+    border: 0;
+    margin: 0;
+    padding: 0;
+    display: block;
+    width: 100%;
+}
+
+time:not(.natural){
+    color: $color-primary;
+    font-family: $font-written;
+    font-size: em(20px);
+}
+
+.type {
+    h1,h2,h3,h4,h5,h6,.h1,.h2,.h3,.h4,.h5,.h6, p {
+        margin: 0;
+    }
+}
+h1,h2,h3,h4,h5,h6,.h1,.h2,.h3,.h4,.h5,.h6, p {
+    &.type {
+        margin: 0;
+    }
+}
+
+.type-white, p.type-white{
+    color: rgba(white, 0.9);
+}
+.type-green{
+    color: $color-secondary;
+}
+.type-gray{
+    color: rgba($gray-dark, .6);
+}

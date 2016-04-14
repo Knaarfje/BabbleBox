@@ -1,0 +1,91 @@
+﻿
+$url: '../fonts/ZZA-icons';
+
+
+@font-face {
+    font-family: 'ZZA';
+    src: url('#{$url}/ZZA.eot') format('embedded-opentype'),
+         url('#{$url}/ZZA.svg') format('svg'),
+         url('#{$url}/ZZA.ttf') format('truetype'),
+         url('#{$url}/ZZA.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+.zza-icon {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: 'ZZA' !important;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.zza-icon-car:before {
+    content: "\e906";
+}
+.zza-icon-cup:before {
+    content: "\e907";
+}
+.zza-icon-drink:before {
+    content: "\e908";
+}
+.zza-icon-food:before {
+    content: "\e909";
+}
+.zza-icon-flag:before {
+    content: "\e90a";
+}
+.zza-icon-other-1:before {
+    content: "\e90b";
+}
+.zza-icon-other:before {
+    content: "\e90c";
+}
+.zza-icon-people-1:before {
+    content: "\e90d";
+}
+.zza-icon-people-2:before {
+    content: "\e90e";
+}
+.zza-icon-people:before {
+    content: "\e90f";
+}
+.zza-icon-pin:before {
+    content: "\e910";
+}
+.zza-icon-social:before {
+    content: "\e911";
+}
+.zza-icon-time:before {
+    content: "\e912";
+}
+.zza-icon-transport:before {
+    content: "\e913";
+}
+.zza-icon-travel:before {
+    content: "\e914";
+}
+.zza-icon-compass:before {
+    content: "\e900";
+}
+.zza-icon-idea:before {
+    content: "\e901";
+}
+.zza-icon-kite:before {
+    content: "\e902";
+}
+.zza-icon-mountains:before {
+    content: "\e903";
+}
+.zza-icon-speach:before {
+    content: "\e904";
+}
+.zza-icon-tent:before {
+    content: "\e905";
+}

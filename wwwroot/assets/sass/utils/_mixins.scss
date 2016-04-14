@@ -1,0 +1,132 @@
+﻿/*#region Vendor */
+@mixin bp($width, $minmax: min) {
+  @media screen and (#{$minmax}-width: $width) {
+      @content;
+  }
+}
+//The Chris Grid
+@mixin grid-row($col-gutter: 0) {
+    @include clearfix;
+    margin-left: -$col-gutter / 2;
+    margin-right: -$col-gutter / 2;
+}
+
+@mixin grid-col($col-span: 6, $col-total: 12, $col-gutter: 0) {
+    width: percentage($col-span / $col-total);
+    float: left;
+    padding-left: $col-gutter / 2;
+    padding-right: $col-gutter / 2;
+}
+
+// Position
+@mixin abs($top: 0, $right: $top, $bottom: $top, $left: $top) {
+    position: absolute;
+    top: $top;
+    right: $right;
+    bottom: $bottom;
+    left: $left;
+}
+
+@mixin fxd($top: 0, $right: $top, $bottom: $top, $left: $top) {
+    position: fixed;
+    top: $top;
+    right: $right;
+    bottom: $bottom;
+    left: $left;
+}
+
+@mixin hide-fake {
+    width: 0 !important;
+    height: 0 !important;
+    overflow: hidden;
+    opacity: 0;
+    position: absolute;
+    z-index: -5;
+}
+
+// Type
+@mixin text-truncate() {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    word-break: break-all;
+}
+
+@mixin h {
+    h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+        @content;
+    }
+}
+
+@mixin reset-space {
+    margin: 0;
+    padding: 0;
+}
+
+
+/*#endregion */
+
+// Generate button
+@mixin btn($bg, $text, $rounded, $size, $type: null) {
+    &,&:hover, &:focus, &:active, &:active:focus,&.disabled, &[disabled] {
+        background: $bg;
+        color: $text;
+        border-radius: $rounded;
+        font-size: $size;
+        cursor: default;
+        border: 2px solid $bg;
+        transition: all .3s;
+    }
+    
+    &:not(span), &.disabled, &[disabled] {
+        &:hover, &:focus, &:active {
+            background: darken($bg, 15%);
+            outline: 0!important;
+            box-shadow: none!important;
+            cursor: pointer;
+            border-color: darken($bg, 15%);
+        }
+    }
+
+    @if $type == 'outline' {
+        &,&:hover, &:focus, &:active {
+            background: none;
+            border: 2px solid $bg;
+            color: $bg;
+        }
+
+         &:not(span) {
+             &:hover, &:focus, &:active {
+                background: $bg;
+                color: $text;
+                border-color: $bg;
+
+                .btn-vr {
+                    background: $text;
+                }
+            }
+        }
+
+        .btn-vr {
+            width: 2px;
+            background: $bg;
+            display: inline-block;
+            height: 44px;
+            margin: -12.5px 6px;
+
+
+        }
+    }
+}
+
+
+@mixin reset-list {
+    @include reset-space;
+    &>li { 
+        @include reset-space; 
+        display: inline;
+    }
+
+    list-style: none;
+}
+ 

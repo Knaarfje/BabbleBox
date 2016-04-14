@@ -1,0 +1,26 @@
+﻿@import '../../../bower_components/bourbon/app/assets/stylesheets/bourbon';
+
+// Utils
+@import "utils/utils";
+
+// Base styles
+@import "base/type";
+@import "base/font-face";
+    
+// Reusable components
+@import "components/buttons";
+@import "components/icons"; 
+
+// Layout related
+@import "layout/header"; 
+@import "layout/nav";
+
+.social-header {
+    visibility: hidden;
+}
+
+body.preload {
+    *, *:after, *:before {
+        transition: none !important;
+    }
+}

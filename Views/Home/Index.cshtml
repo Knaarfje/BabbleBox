@@ -1,25 +1,39 @@
-<form name="myForm" class="modalForm" data-ng-if="state == 0">
-        <div class="form-group">
-            <label for="name">Je naam</label>
-            <input type="text" name="name" required class="form-control" ng-model="user.name" autocomplete="off">
+<form name="myForm" data-ng-if="state == 0">
+    <h2 class="has-back-title is-dark">
+        <span class="back-title">Plaats een idee</span>
+        <span>Ideeën</span>
+    </h2>
+    <p class="intro type-white">
+        Heb jij een knéiter van een idee om Zwolle afvalvrij te maken? Geweldig! We zijn super benieuwd.<br> Spreek je videoboodschap in!
+    </p>
+
+    <div class="idea-panel">
+        <img src="/assets/img/bulb-left.png" class="bulb-left">
+        <img src="/assets/img/bulb-right.png" class="bulb-right">
+        
+        <div class="label-group">
+            <input type="text" name="name" required class="form-control form-control-alt"" ng-model="user.name" autocomplete="off">
+            <label for="name" class="form-label">Naam</label>
         </div>
-        <div class="form-group">
-            <label for="email">Je emailadres</label>
-            <input type="email" name="email" required class="form-control" ng-model="user.email" autocomplete="off">
+        <div class="label-group">
+            <input type="email" name="email" required class="form-control form-control-alt"" ng-model="user.email" autocomplete="off">
+            <label for="email" class="form-label">E-mailadres</label>
         </div>
-        <a href="#" class="btn btn-primary btn-block" ng-click="initCountdown(3, record)" ng-disabled="myForm.$invalid">Neem je boodschap op!</a>
-    </form>
-    <div class="modalbox" data-ng-if="state == 4">
-        <h1 class="text-success"><span class="fa fa-check-circle fa-4x"></span></h1>
     </div>
-        <div class="modalbox" data-ng-if="state == 3">
-        <h1 style="color: #fff"><span class="fa fa-circle-o-notch fa-4x fa-spin"></span></h1>
-    </div>
+    
+    <a href="#" class="btn btn-primary btn-fab btn-raised record-btn" ng-click="myForm.$invalid ? noop() : initCountdown(3, record)" @*ng-disabled=""*@><span class="inner"></span></a>
+</form>
 
+<div class="modalbox" data-ng-if="state == 4">
+    <h1 class="text-success"><span class="fa fa-check-circle fa-4x"></span></h1>
+</div>
+    <div class="modalbox" data-ng-if="state == 3">
+    <h1 style="color: #fff"><span class="fa fa-circle-o-notch fa-4x fa-spin"></span></h1>
+</div>
 
-
-
-<div class="controls" data-ng-if="[1,2].indexOf(state) > -1">  
+<div class="controls">  
+    
+    
     <div ng-if="state == 1">
         <span ng-if="countdown > 0">{{countdown}}</span>
     <a href="#" class="btn btn-success" ng-click="stopRecord()"><span class="fa fa-check"></span></a>    
@@ -32,5 +46,8 @@
     <a href="#" class="btn btn-success" ng-click="save()"><span class="fa fa-floppy-o"></span></a>
     </div>
 </div>
-<button ng-click="cycleStates()" class="btn btn-primary"><span class="fa fa-refresh" style="z-index: 9999;"></span> STATE = {{state}}</button>
+
+<button ng-click="cycleStates()"  id="test" class="btn btn-primary"><span class="fa fa-refresh" style="z-index: 9999;"></span> STATE = {{state}}</button>
+
+<div class="video-overlay"></div>
 <video id="mainVideo" class="blurred" autoplay data-ng-src="{{videoSrc}}"></video>

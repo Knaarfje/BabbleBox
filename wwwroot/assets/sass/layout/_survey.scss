@@ -1,0 +1,23 @@
+﻿.survey {
+    padding-top: 2em;
+    padding-bottom: 0em;
+    
+    @include bp(400px, max){
+        padding-bottom: 3em;
+        padding-top: 0;
+    }
+
+    &-inner{
+         max-width: 850px;
+         margin:auto;
+    }
+
+    @include bp(350px, max) {
+        .btn-group-vertical>.btn, .btn-group>.btn {
+            float: none;
+            margin: 0 -3px 7px;
+        }
+    }
+
+}
+

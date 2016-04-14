@@ -1,0 +1,41 @@
+﻿
+.program{
+
+     &-inner{
+         max-width: 825px;
+         margin:auto;
+     }
+}
+
+.program-blocks-container{
+    max-width: 1020px;
+    margin: 5em auto 1.5em auto;
+
+    @include bp(400px, max){
+        margin: 2em -2%;
+    }
+
+    @include clearfix; 
+}
+
+
+section{
+    padding: 12em 20px 6em 20px;
+    text-align: center;
+
+    @include bp(500px, max){
+        font-size: 12px;
+        padding: 5em 20px 5em;
+
+         p:not(.intro){
+             font-size: 14px;
+         }
+         time{
+             font-size: 18px;
+         }
+     }
+} 
+
+
+
+

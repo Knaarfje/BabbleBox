@@ -1,0 +1,60 @@
+﻿@import "../utils/utils";
+
+.form-control {
+    border-radius: 0;
+    border: 0;
+    border-bottom: 1px solid #E2E6E6;
+    box-shadow: none;
+    padding: 5px 20px;
+    color: rgba($gray-dark, .6);
+    letter-spacing: 0.15em;
+    line-height: 1.6;
+    font-size: em(17px);
+    font-family: $font-body;
+    min-height: 50px;
+
+    &:focus {
+        box-shadow: none;
+        border-color: #E2E6E6;
+    }
+}
+
+textarea.form-control {
+    padding-top: 12px;
+    padding-bottom: 12px;
+
+    &,&:hover { border: 0; }
+}
+
+.label-group {
+    position: relative;
+    font-size: 2em;
+
+    label {
+        position: absolute;
+        top:0;left: 30px; bottom: 0;
+        height: 100px;
+        z-index: 10;
+        color: $color-primary;
+        font-family: $font-written;
+        font-size: em(22px);
+        margin: 0;
+        line-height: 100px;
+        letter-spacing: 0;
+        font-weight: normal;
+        cursor: text;
+        user-select: none;
+        pointer-events: none;
+    }
+
+    .form-control:focus + label,
+    .form-control.ng-not-empty + label {
+        display: none;
+    }
+    
+    .form-control {
+        height: 100px;
+        padding-left: 30px;
+        padding-right: 30px;  
+    }
+}

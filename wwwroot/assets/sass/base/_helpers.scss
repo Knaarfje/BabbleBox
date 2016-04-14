@@ -1,0 +1,46 @@
+﻿.block {
+    display: block;
+}
+.inline-block {
+    display: inline-block;
+}
+
+.middle {
+    vertical-align: middle;
+}
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important;
+}
+
+$spacing: (
+    0:      0,
+    '025':  0.25em,
+    '05':   0.5em,
+    '075':  0.75em,
+    1:      1em,
+    '15':   1.5em,
+    2:      2em,
+    3:      3em
+);
+
+// Spacing helpers
+@each $name, $value in $spacing {
+    // Margin
+    .mt-#{$name} { margin-top:     $value !important; }
+    .mb-#{$name} { margin-bottom:  $value !important; }
+    .ml-#{$name} { margin-left:    $value !important; }
+    .mr-#{$name} { margin-right:   $value !important; }
+    .m-#{$name}  { margin:         $value !important; }
+    .mv-#{$name} { @extend .mt-#{$name}, .mb-#{$name}; }
+    .mh-#{$name} { @extend .ml-#{$name}, .mr-#{$name}; }
+
+    // Padding
+    .pt-#{$name} { padding-top:     $value !important; }
+    .pb-#{$name} { padding-bottom:  $value !important; }
+    .pl-#{$name} { padding-left:    $value !important; }
+    .pr-#{$name} { padding-right:   $value !important; }
+    .p-#{$name}  { padding:         $value !important; }
+    .pv-#{$name} { @extend .pt-#{$name}, .pb-#{$name}; }
+    .ph-#{$name} { @extend .pl-#{$name}, .pr-#{$name}; } 
+}

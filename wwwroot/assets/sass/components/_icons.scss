@@ -1,0 +1,31 @@
+﻿
+
+.diamond {
+    display: inline-block;
+    width: 2em;
+    height: 2em;
+    border: 2px solid $color-primary;
+    padding-left: 2px;
+    line-height: 2em;
+    text-align: center;
+    margin: .5em;
+    transform: rotate(45deg);
+    transition: background-color .2s;
+
+    .fa{
+        color: $color-primary;
+        transition: color .2s;
+    }
+
+    &> * {
+        transform: rotate(-45deg);
+    }
+
+    &:hover{
+        background-color:$color-primary;
+
+        .fa{
+            color:white;
+        }
+    }
+}
