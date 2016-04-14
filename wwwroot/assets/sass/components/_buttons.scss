@@ -71,6 +71,13 @@
     @include btn(white, $color-secondary-t1, 0px, 22px);
 }
 
+.btn-success {
+    @include btn(#86E6C3, $color-secondary-t1, 0px, 22px);
+}
+
+.btn-blue {
+    @include btn(#1E393E, white, 0, 22px);
+}
 .btn-primary-outline {
     @include btn($color-primary, white, 0, 22px, 'outline');
 }
@@ -155,23 +162,17 @@
     width: em(250px, 22px);
     height: em(250px, 22px);
     padding: 0;
+    box-shadow: 4px 5px 30px 0px rgba(0,0,0,0.29) !important;
     border-radius: 50%!important;
     position: relative;
 
-    .zza-icon {
+    img {
+        color: red;
         position: absolute;
-        top: 50%; left: 50%;
+        top: 50%;
+        left: 50%;
         transform: translate(-50%, -50%);
-        font-size: 2em;
-        transition: all .3s;
-    }
-
-    &:hover,&:active,&:focus {
-        transform: rotate(45deg);
-
-        .zza-icon {
-            transform: translate(-50%, -50%) rotate(-45deg);
-        }
+        width: 90px;
     }
 }
 

@@ -9,6 +9,15 @@
     right: 0;
     left: 0;
     z-index: 10;
+    
+    .video-time {
+        position: absolute;
+        right: 50px;
+        bottom: 40px;
+        color: #888;
+        font-size: 30px;
+        letter-spacing: 0.15em;
+    }
 }
 
 #test {
@@ -40,6 +49,23 @@ h2 {
 }
 
 .video-overlay {
+    &,&:before, &:after { transition: all .4s ease-in-out; }
+    opacity: 0;
+    pointer-events: none;
+    
+    .state-0 &,
+    .state-3 &,
+    .state-4 &,
+    .state-1.show-count & {
+        opacity: 1;
+    }
+    
+    .state-3 &,
+    .state-4 & {
+        &:before { opacity: 1; }
+        &:after { opacity: 0; }
+    }
+    
     &:before, &:after {
         position: absolute;
         @include abs;
@@ -69,6 +95,8 @@ h2 {
         z-index: 600;
         background: white;
         border-color: white;
+        transform: scale(0.66) translateX(-75%);
+        transform-origin: center bottom;
         
         &:focus {
             background: darken(white, 10%);
@@ -86,6 +114,112 @@ h2 {
     }
 }
 
+
+@keyframes tick {
+    0% {
+        opacity: 1;
+    }   
+    50% {
+        opacity: 1;
+    } 
+    53% {
+        opacity: .8;
+    } 
+    97% {
+        opacity: .8;
+    }
+}
+
+    .state-1 {
+        .video-time,
+        .record-btn {
+            opacity: 1;
+            transition: all .4s ease-in-out;
+        }
+        
+        &.show-count {
+            .video-time,
+            .record-btn.fab-md {
+                opacity: 0;
+            }
+        }
+        
+        &.hide-count {
+            .record-btn.fab-md {
+                .inner {
+                    animation: tick 2s infinite ease-in-out;
+                }
+            }
+        }
+        
+    }
+    
+    .state-2 {
+        .btn.btn-blue.fab-md,
+        .btn.record-btn.fab-md {
+            transform: scale(0.66);
+            transform-origin: center bottom;
+            position: absolute; 
+            bottom: 40px;
+            right: 0;
+        }
+        
+        .btn.record-btn.fab-md {
+            right: auto;
+            left: 0;
+        }
+        
+        .btn-play {
+            margin-left: 10px;
+        }
+        .btn-pause {
+            height: 130px;
+        }
+        
+        .btn.btn-success {
+            bottom: 40px;
+            left: 50%;
+            position: absolute;
+            transform: translateX(-50%);  
+            
+            img {
+                width: 160px;
+            }
+           
+        }
+        
+    }
+    
+    .state-3,
+    .state-4 {
+        .btn.btn-fab.btn-success {
+            position: absolute;
+            top: 50%;
+            bottom: auto;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(1.8);
+            z-index: 500;
+            
+            .fa {
+                position: absolute;
+                top: 27%;
+                left: 27%;
+                font-size: 120px;
+                color: #00363B;
+            }
+            
+            img {
+                width: 140px;
+            }
+        } 
+        
+        .btn.btn-fab.btn-primary.record-btn {
+            left: 0;
+            transform: scale(0.66) translateX(0);
+        }
+
+    }
+
 form {
     @include abs;
     z-index: 50;
@@ -97,4 +231,50 @@ form {
         margin-right: auto;
         font-size: 30px;
     }
+}
+
+.count-down {
+    transition: all .4s ease-in-out;
+    position: absolute;
+    transform: translateY(-50%);
+    top: 50%;
+    left: 0;
+    right: 0; 
+    height: 68vh;
+    z-index: 1;
+    z-index: 50;
+
+    
+    .hide-count & {
+        top: -300vh;
+        pointer-events: none;
+    }
+    
+    
+    .btn {
+        height: 68vh;
+        width: 68vh;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        z-index: 500;
+        transform: translate(-50%, -50%)!important;
+        
+        .counts {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 25vh;
+            letter-spacing: 0.05em;
+            text-align: center;
+        }
+        .count {
+            opacity: 0.4;
+            transition: 0.2s ease-in-out;
+            &.active {
+                opacity: 1;
+            }
+        }
+    }    
 }

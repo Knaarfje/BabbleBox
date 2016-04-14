@@ -43,7 +43,7 @@ var BabbleBoxState = {
 }
 
 
-app.controller("babbleBoxController", function($scope, $sce, UserMedia, $http, $interval) {
+app.controller("babbleBoxController", function($scope, $sce, UserMedia, $http, $interval, $timeout) {
     $scope.state = BabbleBoxState.LOADING;
     $scope.playing = false;
 
@@ -166,6 +166,11 @@ app.controller("babbleBoxController", function($scope, $sce, UserMedia, $http, $
             $scope.state++;
         }
     }
+    
+        
+
+        
+    
 
     $scope.save = () => {
         $scope.state = BabbleBoxState.SAVING;
@@ -186,7 +191,11 @@ app.controller("babbleBoxController", function($scope, $sce, UserMedia, $http, $
                 $scope.user = {
                     name: null,
                     email: null
-                }
+                };
+                
+                $timeout(function(){
+                    if ($scope.state = BabbleBoxState.SAVED) $scope.state = BabbleBoxState.READY;
+                },10000)
             });
         });
     }

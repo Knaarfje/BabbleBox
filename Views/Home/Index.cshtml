@@ -1,54 +1,88 @@
-<form name="myForm" data-ng-if="state == 0">
-    <h2 class="has-back-title is-dark">
-        <span class="back-title">Plaats een idee</span>
-        <span>Ideeën</span>
-    </h2>
-    <p class="intro type-white">
-        Heb jij een knéiter van een idee om Zwolle afvalvrij te maken? Geweldig! We zijn super benieuwd.<br> Spreek je videoboodschap in!
-    </p>
+<div class="state-{{state}}" ng-class="countdown == 0 ? 'hide-count' : 'show-count'">
+    <form name="myForm" data-ng-if="state == 0">
+        <h2 class="has-back-title is-dark">
+            <span class="back-title">Plaats een idee</span>
+            <span>Ideeën</span>
+        </h2>
+        <p class="intro type-white">
+            Heb jij een knéiter van een idee om Zwolle afvalvrij te maken? Geweldig! We zijn super benieuwd.<br> Spreek je videoboodschap in!
+        </p>
 
-    <div class="idea-panel">
-        <img src="/assets/img/bulb-left.png" class="bulb-left">
-        <img src="/assets/img/bulb-right.png" class="bulb-right">
-        
-        <div class="label-group">
-            <input type="text" name="name" required class="form-control form-control-alt"" ng-model="user.name" autocomplete="off">
-            <label for="name" class="form-label">Naam</label>
+        <div class="idea-panel">
+            <img src="/assets/img/bulb-left.png" class="bulb-left">
+            <img src="/assets/img/bulb-right.png" class="bulb-right">
+            
+            <div class="label-group">
+                <input type="text" name="name" required class="form-control form-control-alt"" ng-model="user.name" autocomplete="off">
+                <label for="name" class="form-label">Naam</label>
+            </div>
+            <div class="label-group">
+                <input type="email" name="email" required class="form-control form-control-alt"" ng-model="user.email" autocomplete="off">
+                <label for="email" class="form-label">E-mailadres</label>
+            </div>
         </div>
-        <div class="label-group">
-            <input type="email" name="email" required class="form-control form-control-alt"" ng-model="user.email" autocomplete="off">
-            <label for="email" class="form-label">E-mailadres</label>
-        </div>
-    </div>
-    
-    <a href="#" class="btn btn-primary btn-fab btn-raised record-btn" ng-click="myForm.$invalid ? noop() : initCountdown(3, record)" @*ng-disabled=""*@><span class="inner"></span></a>
-</form>
-
-<div class="modalbox" data-ng-if="state == 4">
-    <h1 class="text-success"><span class="fa fa-check-circle fa-4x"></span></h1>
-</div>
-    <div class="modalbox" data-ng-if="state == 3">
-    <h1 style="color: #fff"><span class="fa fa-circle-o-notch fa-4x fa-spin"></span></h1>
-</div>
-
-<div class="controls">  
-    
-    
-    <div ng-if="state == 1">
-        <span ng-if="countdown > 0">{{countdown}}</span>
-        <span>{{recordingDuration | secondsToDateTime | date:'mm:ss'}}</span>
-    <a href="#" class="btn btn-success" ng-click="stopRecord()"><span class="fa fa-check"></span></a>    
-    <a href="#" class="btn btn-danger" ng-click="reset()"><span class="fa fa-arrow-left"></span></a>
-    </div>
-<div ng-if="state == 2">
-    <a href="#" class="btn btn-primary" ng-click="play()"><span class="fa" ng-class="{'fa-play': !playing, 'fa-pause': playing}"></span></a> 
         
-    <a href="#" class="btn btn-danger" ng-click="reset()"><span class="fa fa-undo"></span></a>   
-    <a href="#" class="btn btn-success" ng-click="save()"><span class="fa fa-floppy-o"></span></a>
+        <a href="#" class="btn btn-primary btn-fab btn-raised record-btn" ng-click="myForm.$invalid ? noop() : initCountdown(3, record)" @*ng-disabled=""*@><span class="inner"></span></a>
+    </form>
+
+
+    <div class="controls">  
+        <div ng-if="state == 1">
+            <div class="count-down">
+                <span class="btn btn-primary record-btn btn-fab btn-raised">
+                    <span class="inner">
+                        <span class="counts">
+                            <span ng-class="{'active' : countdown === 3}" class="count">3</span>
+                            <span ng-class="{'active' : countdown === 2}" class="count">2</span>
+                            <span ng-class="{'active' : countdown === 1}" class="count">1</span>
+                        </span>
+                    </span>
+                </span>   
+            </div>
+            
+            <span class="video-time">{{recordingDuration | secondsToDateTime | date:'mm:ss'}}</span>
+            
+            <a href="#" class="btn btn-primary btn-fab btn-raised record-btn fab-md" ng-click="stopRecord()">
+                <span class="inner"></span>
+            </a>
+        </div>
+
+        <div ng-if="state == 2">
+            <a href="#" class="btn btn-blue btn-fab fab-md btn-raised " ng-click="play()">
+                <img ng-if="!playing" src="/assets/img/btn-play.svg" class="btn-play">
+                <img ng-if="playing" src="/assets/img/btn-pause.svg" class="btn-pause">
+            </a> 
+                
+            <a href="#" class="btn btn-primary record-btn btn-fab fab-md btn-raised " ng-click="reset()">
+                <span class="inner"></span><img src="/assets/img/btn-retry.png">
+            </a>   
+            <a href="#" class="btn btn-success btn-fab btn-raised" ng-click="save()">
+                <img src="/assets/img/btn-check.svg">
+            </a>
+        </div> 
+        
+        
+        <div data-ng-if="state == 3">
+            <span class="btn btn-success btn-fab btn-raised">           
+                <span class="fa fa-circle-o-notch fa-4x fa-spin"></span>
+            </span>
+        </div>
+        
+        <div data-ng-if="state == 4">
+            <h2 class="has-back-title is-dark">
+                <span class="back-title">Gelukt</span>
+                <span>BEDANKT VOOR JE INZENDING!</span>
+            </h2>
+            
+            <a href="#" class="btn btn-primary record-btn btn-fab fab-md btn-raised " ng-click="reset()"><span class="inner"></span><img src="/assets/img/btn-retry.png"></a>   
+            <a class="btn btn-success btn-fab btn-raised"ng-click="reset()"><img src="/assets/img/btn-check.svg"></a>
+
+        </div>
+        
     </div>
+    
+    <div class="video-overlay"></div>
+
+    <button ng-click="cycleStates()"  id="test" class="btn btn-primary"><span class="fa fa-refresh" style="z-index: 9999;"></span> STATE = {{state}}</button>
+    <video id="mainVideo" class="blurred" autoplay data-ng-src="{{videoSrc}}"></video>
 </div>
-
-<button ng-click="cycleStates()"  id="test" class="btn btn-primary"><span class="fa fa-refresh" style="z-index: 9999;"></span> STATE = {{state}}</button>
-
-<div class="video-overlay"></div>
-<video id="mainVideo" class="blurred" autoplay data-ng-src="{{videoSrc}}"></video>
