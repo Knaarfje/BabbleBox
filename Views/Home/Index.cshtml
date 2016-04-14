@@ -8,7 +8,7 @@
             <label for="email">Je emailadres</label>
             <input type="email" name="email" required class="form-control" ng-model="user.email" autocomplete="off">
         </div>
-        <a href="#" class="btn btn-primary btn-block" ng-click="record()" ng-disabled="myForm.$invalid">Neem je boodschap op!</a>
+        <a href="#" class="btn btn-primary btn-block" ng-click="initCountdown(3, record)" ng-disabled="myForm.$invalid">Neem je boodschap op!</a>
     </form>
     <div class="modalbox" data-ng-if="state == 4">
         <h1 class="text-success"><span class="fa fa-check-circle fa-4x"></span></h1>
@@ -22,6 +22,7 @@
 
 <div class="controls" data-ng-if="[1,2].indexOf(state) > -1">  
     <div ng-if="state == 1">
+        <span ng-if="countdown > 0">{{countdown}}</span>
     <a href="#" class="btn btn-success" ng-click="stopRecord()"><span class="fa fa-check"></span></a>    
     <a href="#" class="btn btn-danger" ng-click="reset()"><span class="fa fa-arrow-left"></span></a>
     </div>
