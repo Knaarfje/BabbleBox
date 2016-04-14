@@ -1,4 +1,4 @@
-$nudge-keyboard: -400px;
+$nudge-keyboard: -450px;
 
 .controls {
     background: url(/assets/img/ice-footer.png);
@@ -136,7 +136,7 @@ h2 {
 .state-0 {
     &.keyboard-true {
         .btn.btn-primary.record-btn {
-            transform: translateX(-50%) translateY(#{$nudge-keyboard});
+            transform: translateX(-50%) translateY(#{$nudge-keyboard - 50px});
         }
     }
 }
