@@ -1119,10 +1119,10 @@ textarea.form-control {
   .idea-panel .bulb-left {
     position: absolute;
     left: 0;
-    top: 0;
+    top: 60px;
     width: 230px;
     z-index: 50;
-    margin-top: -80px;
+    margin-top: -140px;
     margin-left: -215px; }
   .idea-panel .bulb-right {
     position: absolute;
