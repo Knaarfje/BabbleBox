@@ -37,9 +37,11 @@ var BabbleBoxState = {
 }
 
 
-app.controller("babbleBoxController", function($scope, $sce, UserMedia, $http) {
+app.controller("babbleBoxController", function($scope, $sce, UserMedia, $http, $interval) {
     $scope.state = BabbleBoxState.LOADING;
     $scope.playing = false;
+    $scope.countdownPromise;
+    $scope.countdown;
     $scope.user = {
         name: null,
         email: null
@@ -100,6 +102,25 @@ app.controller("babbleBoxController", function($scope, $sce, UserMedia, $http) {
 			}
 		});
     };
+
+    $scope.initCountdown = (from, callback) => {
+        $scope.state = BabbleBoxState.RECORDING;
+        if ($scope.countdownPromise) {
+            $interval.cancel($scope.countdownPromise);
+        }
+
+        $scope.countdown = from;        
+
+        $scope.countdownPromise = $interval(() => {
+            $scope.countdown--;
+            if ($scope.countdown == 0) {
+                $interval.cancel($scope.countdownPromise);
+                if (callback) {
+                    callback();
+                }
+            }
+        }, 1000);        
+    }
 
     $scope.play = () => {
         if (!v.paused) {
