@@ -539,8 +539,8 @@ h2 {
   z-index: 600;
   background: white;
   border-color: white;
-  -webkit-transform: scale(0.66) translateX(-75%);
-          transform: scale(0.66) translateX(-75%);
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
   -webkit-transform-origin: center bottom;
           transform-origin: center bottom; }
   .btn.btn-primary.record-btn:focus, .btn.btn-primary.record-btn[ng-disabled]:focus {
