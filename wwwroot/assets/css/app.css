@@ -1,0 +1,52 @@
+body {
+  background: #000; }
+
+video {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none; }
+
+.modalbox {
+  text-align: center; }
+
+.modalForm, .modalbox {
+  position: absolute;
+  left: 40%;
+  right: 40%;
+  top: 40%;
+  z-index: 9999;
+  padding: 20px; }
+
+.modalForm label {
+  color: #fff; }
+
+.modalForm input {
+  background: rgba(255, 255, 255, 0.25);
+  border: solid 1px #fff;
+  color: #fff; }
+
+.controls {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.75);
+  z-index: 9999;
+  padding: 10px; }
+
+.blink_me {
+  -webkit-animation: blinker 1s cubic-bezier(0.075, 0.82, 0.165, 1) infinite;
+          animation: blinker 1s cubic-bezier(0.075, 0.82, 0.165, 1) infinite; }
+
+@-webkit-keyframes blinker {
+  50% {
+    opacity: 0.0; } }
+
+@keyframes blinker {
+  50% {
+    opacity: 0.0; } }
