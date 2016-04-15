@@ -421,8 +421,7 @@ h2 {
     transition: all .4s ease-in-out; }
   .state-0 .video-overlay,
   .state-3 .video-overlay,
-  .state-4 .video-overlay,
-  .state-1.show-count .video-overlay {
+  .state-4 .video-overlay {
     opacity: 1; }
   .state-3 .video-overlay:before,
   .state-4 .video-overlay:before {

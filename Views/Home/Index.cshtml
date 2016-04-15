@@ -1,5 +1,5 @@
 <div class="state-{{state}} keyboard-{{keyboardOpen}}" ng-class="countdown == 0 ? 'hide-count' : 'show-count'">
-    <form name="myForm" data-ng-if="state == 0" class="animate-if sheet">
+    <form novalidate name="myForm" data-ng-if="state == 0" class="animate-if sheet" ng-submit="myForm.$invalid ? noop() : initCountdown(3, record)">
         <h2 class="has-back-title is-dark">
             <span class="back-title">Jouw idee</span>
             <span>BABBELBOX</span>
@@ -23,7 +23,7 @@
             </div>
         </div>
         
-        <a href="#" class="btn btn-primary btn-fab btn-raised record-btn" ng-click="myForm.$invalid ? noop() : initCountdown(3, record)" @*ng-disabled=""*@><span class="inner"></span></a>
+        <button type="submit" href="#" class="btn btn-primary btn-fab btn-raised record-btn" @*ng-disabled=""*@><span class="inner"></span></button>
     </form>
 
 

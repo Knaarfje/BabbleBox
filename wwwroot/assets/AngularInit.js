@@ -46,6 +46,8 @@ var BabbleBoxState = {
 app.controller("babbleBoxController", function($scope, $sce, UserMedia, $http, $interval, $timeout) {
     $scope.state = BabbleBoxState.LOADING;
     $scope.playing = false;
+    
+    var automaticReset;
 
     // countdown interval props    
     $scope.countdownPromise;
@@ -78,7 +80,9 @@ app.controller("babbleBoxController", function($scope, $sce, UserMedia, $http, $
 
     $scope.init = () => {
         $scope.state = BabbleBoxState.LOADING;
-
+        if(automaticReset) $timeout.cancel(automaticReset);
+        $scope.blur();
+        
         UserMedia.get(hdConstraints).then((stream) => {
             console.log('starting video', stream);
             window.stream = stream; // stream available to console for dev
@@ -198,8 +202,8 @@ app.controller("babbleBoxController", function($scope, $sce, UserMedia, $http, $
                     email: null
                 };
                 
-                $timeout(() => {
-                    if ($scope.state = BabbleBoxState.SAVED) $scope.state = BabbleBoxState.READY;
+                automaticReset = $timeout(() => {
+                    if ($scope.state = BabbleBoxState.SAVED) $scope.reset();
                 },7500)
             });
         });
