@@ -1,4 +1,4 @@
-var app = angular.module('babbleBoxApp', [])
+var app = angular.module('babbleBoxApp', ['ngAnimate'])
 
 app.filter('secondsToDateTime', [function() {
     return function(seconds) {
@@ -200,7 +200,7 @@ app.controller("babbleBoxController", function($scope, $sce, UserMedia, $http, $
                 
                 $timeout(() => {
                     if ($scope.state = BabbleBoxState.SAVED) $scope.state = BabbleBoxState.READY;
-                },10000)
+                },7500)
             });
         });
     }

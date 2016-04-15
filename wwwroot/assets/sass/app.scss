@@ -4,16 +4,12 @@
 
 // Base styles
 @import "base/type";
-@import "base/font-face";
-@import "base/icons";
 @import "base/helpers";
     
 // Layout related
-@import "layout/controls"; 
+@import "layout/states"; 
 
 // Reusable components
 @import "components/buttons";
-@import "components/icons"; 
 @import "components/forms";
-@import "components/idea-panel"; 
-@import "components/nav-icon"; 
+@import "components/idea-panel";   

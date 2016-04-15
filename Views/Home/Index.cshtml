@@ -1,5 +1,5 @@
 <div class="state-{{state}} keyboard-{{keyboardOpen}}" ng-class="countdown == 0 ? 'hide-count' : 'show-count'">
-    <form name="myForm" data-ng-if="state == 0">
+    <form name="myForm" data-ng-if="state == 0" class="animate-if sheet">
         <h2 class="has-back-title is-dark">
             <span class="back-title">Jouw idee</span>
             <span>BABBELBOX</span>
@@ -28,7 +28,7 @@
 
 
     <div class="controls">  
-        <div ng-if="state == 1">
+        <div ng-if="state == 1" class="animate-if sheet">
             <div class="count-down">
                 <span class="btn btn-primary record-btn btn-fab btn-raised">
                     <span class="inner">
@@ -48,7 +48,7 @@
             </a>
         </div>
 
-        <div ng-if="state == 2">
+        <div ng-if="state == 2" class="animate-if sheet">
             <a href="#" class="btn btn-blue btn-fab fab-md btn-raised " ng-click="play()">
                 <img ng-if="!playing" src="/assets/img/btn-play.svg" class="btn-play">
                 <img ng-if="playing" src="/assets/img/btn-pause.svg" class="btn-pause">
@@ -63,13 +63,13 @@
         </div> 
         
         
-        <div data-ng-if="state == 3">
-            <span class="btn btn-success btn-fab btn-raised">           
+        <div data-ng-if="state == 3" class="animate-if sheet">
+            <span class="btn btn-success btn-fab btn-raised show-onload">           
                 <span class="fa fa-circle-o-notch fa-4x fa-spin"></span>
             </span>
         </div>
         
-        <div data-ng-if="state == 4">
+        <div data-ng-if="state == 4" class="animate-if sheet">
             <h2 class="has-back-title is-dark">
                 <span class="back-title">Gelukt</span>
                 <span>BEDANKT VOOR JE INZENDING!</span>
@@ -77,7 +77,6 @@
             
             <a href="#" class="btn btn-primary record-btn btn-fab fab-md btn-raised " ng-click="reset()"><span class="inner"></span><img src="/assets/img/btn-retry.png"></a>   
             <a class="btn btn-success btn-fab btn-raised"ng-click="reset()"><img src="/assets/img/btn-check.svg"></a>
-
         </div>
         
     </div>
